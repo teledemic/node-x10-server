@@ -1,0 +1,23 @@
+{
+  "name": "node-x10-server",
+  "version": "1.0.0",
+  "description": "Schedule and send x10 commands via a web interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teledemic/node-x10-server.git"
+  },
+  "author": "Carl Irving",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teledemic/node-x10-server/issues"
+  },
+  "homepage": "https://github.com/teledemic/node-x10-server#readme",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "serialport": "^2.0.5"
+  }
+}
