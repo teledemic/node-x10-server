@@ -1,5 +1,6 @@
 var express = require("express");
 var device = require("./device");
+var config = require("./config");
 
 var router =  express.Router();
 
@@ -9,6 +10,14 @@ router.get("/api/listports", function(req, res) {
 	}, function(err) {
 		utilities.returnError(res, 500, "Couldn't retrieve port list", err);
 	});
+});
+router.get("/api/devices", function(req, res) {
+	var settings = config.settings || {};
+	res.json(settings.names || []);
+});
+router.get("/api/schedules", function(req, res) {
+	var settings = config.settings || {};
+	res.json(settings.schedules || []);
 });
 router.get("/api/:house/:module/on", function(req, res) {
 	var house = req.params.house;

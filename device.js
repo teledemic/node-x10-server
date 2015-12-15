@@ -1,4 +1,4 @@
-var x10 = require('../node-x10-comm');
+var x10 = require('node-x10-comm');
 
 var device = null;
 
