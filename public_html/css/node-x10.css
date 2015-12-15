@@ -1,0 +1,21 @@
+html, body {
+	background-color: #092636;
+	color: white;
+}
+@media (min-width: 400px) {
+	.panel {
+		width: 400px;
+		margin: auto;
+	}
+}
+.panel {
+	margin-top: 40px;
+	border-color: #ddd;
+	background-color: white;
+	color: black;
+}
+.panel .panel-heading {
+	background-color: #333;
+	font-size: 1.5em;
+	color: white;
+}

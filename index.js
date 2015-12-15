@@ -5,11 +5,13 @@ var http =           require("http");
 var express =        require("express");
 
 var device =         require("./device");
+var config =         require("./config");
 
 var app = express();
 var server = http.createServer(app);
 
-var COM_NAME = "/dev/cu.usbserial";
+//var COM_NAME = "/dev/cu.usbserial";
+//var COM_NAME = "COM3";
 
 app.enable('trust proxy');
 app.use(bodyParser.json({ limit : "100kb" })); // for parsing application/json
@@ -33,16 +35,16 @@ app.use(cors({
 app.use(express.static(__dirname + '/public_html'));
 app.use("/", require("./routes"));
 
-try {
-	device.open(COM_NAME, function() {
+if (config.load("./config/settings.json")) {
+	device.open(config.settings.com_name, function() {
 		console.log("Device opened");
 	}, function(err) {
 		console.log("Error opening device: " + err);
 	});
-} catch (ex) {
-	console.log("Bad comName: " + COM_NAME);
-}
 
-server.listen(8081, function () {
-	console.log("Server running");
-});
+	server.listen(config.settings.web_port, function () {
+		console.log("Server running");
+	});
+} else {
+	console.log("Couldn't read config file");
+}
