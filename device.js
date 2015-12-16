@@ -1,18 +1,11 @@
-var x10 = require('node-x10-comm');
+var x10 = require('../node-x10-comm');
 
-var device = null;
+var device = x10.device();
 
 module.exports = {
 	open: function(comName, callback, errcallback) {
-		if (device) {
-			device.close();
-		}
 		try {
-			var dev = x10.device(comName);
-			dev.open(function() {
-				device = dev;
-				callback();
-			}, errcallback);
+			device.open(comName, callback, errcallback);
 		} catch (ex) {
 			errcallback(ex);
 		}

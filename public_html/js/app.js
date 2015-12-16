@@ -1,5 +1,5 @@
 (function() {
-var app = angular.module("x10", ["ngResource"]);
+var app = angular.module("x10", ["ngResource", "ngDialog"]);
 
 app.controller("Sandbox", function($scope, Control) {
 	$scope.house = "2";
@@ -42,6 +42,22 @@ app.controller("Devices", function($scope, Control, Device) {
 	};
 });
 
+app.controller("Settings", function($scope, ngDialog) {
+	$scope.selectComm = function() {
+		ngDialog.open({
+			controller: "ChooseCommController",
+			template: "choosecomm.html"
+		});
+	};
+});
+
+app.controller("ChooseCommController", function($scope, CommPorts) {
+	$scope.commports = CommPorts.query();
+	$scope.setPort = function(port) {
+		$scope.closeThisDialog();
+	};
+});
+
 app.filter('houseCode', function() {
 	return function(code) {
 		return String.fromCharCode(parseInt(code) + 65);
@@ -72,6 +88,10 @@ app.factory("Schedule", function($resource) {
 
 app.factory("Device", function($resource) {
 	return $resource("/api/device/:id");
+});
+
+app.factory("CommPorts", function($resource) {
+	return $resource("/api/listports");
 });
 
 })();

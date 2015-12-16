@@ -1,0 +1,8 @@
+<div>
+	<h3>Comm port:</h3>
+	<div class="list-group">
+		<button ng-repeat="port in commports" ng-click="setPort(port)" class="list-group-item">
+			<div class="port-name">{{port.comName}}</div><div ng-if="port.manufacturer" class="port-manufacturer">{{port.manufacturer}}</div>
+		</button
+	</div>
+</div>

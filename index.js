@@ -35,16 +35,17 @@ app.use("/", require("./routes"));
 
 scheduler.start();
 
-if (config.load("./config/settings.json")) {
+config.load("./config/settings.json", function() {
 	device.open(config.settings.com_name, function() {
-		console.log("Device opened");
+		console.log(config.settings.com_name + " opened");
 	}, function(err) {
-		console.log("Error opening device: " + err);
+		console.log("Error opening device:");
+		console.log(err);
 	});
 
 	server.listen(config.settings.web_port, function () {
 		console.log("Server running");
 	});
-} else {
+}, function(err) {
 	console.log("Couldn't read config file");
-}
+});

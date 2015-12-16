@@ -5,9 +5,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="css/ngDialog.css" rel="stylesheet" media="screen">
+	<link href="css/ngDialog-theme-default.css" rel="stylesheet" media="screen">
 	<link href="css/node-x10.css" rel="stylesheet" media="screen">
 	<script src="js/angular.min.js"></script>
 	<script src="js/angular-resource.min.js"></script>
+	<script src="js/ngDialog.min.js"></script>
 	<script src="js/app.js"></script>
 </head>
 <body ng-app="x10">
@@ -93,6 +96,17 @@
 					<label class="col-xs-6 control-label">Command</label>
 					<button class="btn btn-success" ng-click="turnOn()">On</button>
 					<button class="btn btn-danger" ng-click="turnOff()">Off</button>
+				</div>
+			</div>
+		</div>
+		<div class="form-horizontal panel" ng-controller="Settings">
+			<div class="panel-heading">Settings</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="commPort" class="col-xs-6 control-label">Comm port</label>
+					<div class="col-xs-4">
+						<button id="commPort" class="btn btn-primary form-control" ng-click="selectComm()">Select</button>
+					</div>
 				</div>
 			</div>
 		</div>

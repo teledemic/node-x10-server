@@ -2,14 +2,9 @@ html, body {
 	background-color: #092636;
 	color: white;
 }
-@media (min-width: 400px) {
-	.panel {
-		width: 400px;
-		margin: auto;
-	}
-}
 .panel {
-	margin-top: 40px;
+	max-width: 600px;
+	margin: 20px auto;
 	border-color: #666;
 	background-color: rgba(255,255,255,.9);
 	color: black;
@@ -25,4 +20,13 @@ html, body {
 	font-weight: bold;
 	font-family: Fixed, monospace;
 	margin-right: 5px;
+}
+.timestamp {
+	margin-right: 10px;
+}
+.port-name {
+	font-weight: bold;
+}
+.port-manufacturer {
+	font-size: .7em;
 }

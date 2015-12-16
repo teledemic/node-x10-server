@@ -1,7 +1,9 @@
 {
-	"com_name": "COM3",
-	"web_port": "8081",
-	"names": [
+	"settings": {
+		"com_name": "COM3",
+		"web_port": "8081"
+	},
+	"devices": [
 		{
 			"house": 2,
 			"module": 0,
