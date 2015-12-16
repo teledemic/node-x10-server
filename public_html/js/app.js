@@ -51,10 +51,14 @@ app.controller("Settings", function($scope, ngDialog) {
 	};
 });
 
-app.controller("ChooseCommController", function($scope, CommPorts) {
-	$scope.commports = CommPorts.query();
+app.controller("ChooseCommController", function($scope, AvailablePorts, CommPort) {
+	$scope.commports = AvailablePorts.query();
 	$scope.setPort = function(port) {
-		$scope.closeThisDialog();
+		CommPort.save({ com_name: port.comName}, function() {
+			$scope.closeThisDialog();
+		}, function(err) {
+			console.log(err);
+		});
 	};
 });
 
@@ -90,8 +94,12 @@ app.factory("Device", function($resource) {
 	return $resource("/api/device/:id");
 });
 
-app.factory("CommPorts", function($resource) {
+app.factory("AvailablePorts", function($resource) {
 	return $resource("/api/listports");
+});
+
+app.factory("CommPort", function($resource) {
+	return $resource("/api/settings/commport");
 });
 
 })();
