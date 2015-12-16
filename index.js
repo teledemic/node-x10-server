@@ -1,17 +1,15 @@
-var _  =             require("lodash");
-var bodyParser =     require("body-parser");
-var cors =           require("cors");
-var http =           require("http");
-var express =        require("express");
+var _  = require("lodash");
+var bodyParser = require("body-parser");
+var cors = require("cors");
+var express = require("express");
+var http = require("http");
 
-var device =         require("./device");
-var config =         require("./config");
+var config = require("./config");
+var device = require("./device");
+var scheduler = require("./scheduler");
 
 var app = express();
 var server = http.createServer(app);
-
-//var COM_NAME = "/dev/cu.usbserial";
-//var COM_NAME = "COM3";
 
 app.enable('trust proxy');
 app.use(bodyParser.json({ limit : "100kb" })); // for parsing application/json
@@ -34,6 +32,8 @@ app.use(cors({
 // Static files served out of /public_html
 app.use(express.static(__dirname + '/public_html'));
 app.use("/", require("./routes"));
+
+scheduler.start();
 
 if (config.load("./config/settings.json")) {
 	device.open(config.settings.com_name, function() {

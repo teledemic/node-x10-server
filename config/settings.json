@@ -6,17 +6,34 @@
 			"house": 2,
 			"module": 0,
 			"name": "Christmas lights"
+		},
+		{
+			"house": 2,
+			"module": 3,
+			"name": "Porch light"
 		}
 	],
 	"schedules": [
 		{
-			"time": 0,
+			"time": 72900,
+			"house": 2,
+			"module": 3,
+			"command": 1
+		},
+		{
+			"time": 25800,
+			"house": 2,
+			"module": 3,
+			"command": 0
+		},
+		{
+			"time": 72900,
 			"house": 2,
 			"module": 0,
 			"command": 1
 		},
 		{
-			"time": 1,
+			"time": 84600,
 			"house": 2,
 			"module": 0,
 			"command": 0

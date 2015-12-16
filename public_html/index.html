@@ -12,6 +12,34 @@
 </head>
 <body ng-app="x10">
 	<div class="container">
+		<div class="form-horizontal panel" ng-controller="Devices">
+			<div class="panel-heading">Devices</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li ng-repeat="device in devices | orderBy : ['house','module']" class="list-group-item">
+						<span class="device-code">{{device.house | houseCode}}{{device.module | moduleCode}}</span>
+						{{device.name}}
+						<div class="btn-group pull-right" role="group">
+							<button class="btn btn-success" ng-click="turnOn(device)">On</button>
+							<button class="btn btn-danger" ng-click="turnOff(device)">Off</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="form-horizontal panel" ng-controller="Schedules">
+			<div class="panel-heading">Schedules</div>
+			<div class="panel-body">
+				<ul class="list-group">
+					<li ng-repeat="schedule in schedules | orderBy : ['time','house','module']" class="list-group-item">
+						<span class="timestamp">{{schedule.time | timeStamp}}</span>
+						<span class="device-code">{{schedule.house | houseCode}}{{schedule.module | moduleCode}}</span>
+						<button ng-if="schedule.command===1" class="btn btn-success pull-right" ng-click="turnOn(schedule)">On</button>
+						<button ng-if="schedule.command===0" class="btn btn-danger pull-right" ng-click="turnOff(schedule)">Off</button>
+					</li>
+				</ul>
+			</div>
+		</div>
 		<div class="form-horizontal panel" ng-controller="Sandbox">
 			<div class="panel-heading">Sandbox</div>
 			<div class="panel-body">
@@ -19,7 +47,7 @@
 					<label for="selectHouse" class="col-xs-6 control-label">House code</label>
 					<div class="col-xs-4">
 						<select id="selectHouse" ng-model="house" class="form-control">
-							<option value="0" selected>A</option>
+							<option value="0">A</option>
 							<option value="1">B</option>
 							<option value="2">C</option>
 							<option value="3">D</option>
@@ -42,7 +70,7 @@
 					<label for="selectModule" class="col-xs-6 control-label">Module</label>
 					<div class="col-xs-4">
 						<select id="selectModule" ng-model="module" class="form-control">
-							<option value="0" selected>1</option>
+							<option value="0">1</option>
 							<option value="1">2</option>
 							<option value="2">3</option>
 							<option value="3">4</option>
@@ -66,11 +94,6 @@
 					<button class="btn btn-success" ng-click="turnOn()">On</button>
 					<button class="btn btn-danger" ng-click="turnOff()">Off</button>
 				</div>
-			</div>
-		</div>
-		<div class="form-horizontal panel" ng-controller="Schedules">
-			<div class="panel-heading">Schedules</div>
-			<div class="panel-body">
 			</div>
 		</div>
 	</div>

@@ -33,4 +33,13 @@ module.exports = {
 		res.send();
 	},
 
+	commandText: function(house, module, command) {
+		var housetxt = String.fromCharCode(65 + parseInt(house));
+		var pad = "0" + (module + 1);
+		var moduletxt = pad.substr(pad.length - 2);
+		var commandtxt = "off";
+		if (command) commandtxt = "on";
+		return housetxt + moduletxt + " *" + commandtxt + "*";
+	},
+
 };
