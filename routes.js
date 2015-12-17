@@ -39,7 +39,7 @@ router.post("/api/settings/commport", function(req, res) {
 		utilities.returnError(res, 400, "Must provide com_name");
 	}
 });
-router.get("/api/:house/:module/on", function(req, res) {
+router.get("/api/on/:house/:module", function(req, res) {
 	var house = req.params.house;
 	var module = req.params.module;
 	device.sendCommand(house, module, 1, function() {
@@ -49,7 +49,7 @@ router.get("/api/:house/:module/on", function(req, res) {
 		utilities.returnError(res, 500, "Couldn't turn on house " + house + ", module " + module, err);
 	});
 });
-router.get("/api/:house/:module/off", function(req, res) {
+router.get("/api/off/:house/:module", function(req, res) {
 	var house = req.params.house;
 	var module = req.params.module;
 	device.sendCommand(house, module, 0, function() {

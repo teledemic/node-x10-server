@@ -83,7 +83,7 @@ app.filter('timeStamp', function($filter) {
 });
 
 app.factory("Control", function($resource) {
-	return $resource("/api/:house/:module/:command");
+	return $resource("/api/:command/:house/:module");
 });
 
 app.factory("Schedule", function($resource) {

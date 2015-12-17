@@ -33,9 +33,12 @@ app.use(cors({
 app.use(express.static(__dirname + '/public_html'));
 app.use("/", require("./routes"));
 
-scheduler.start();
+config.load("./config/settings.json", function(created) {
+	if (created) {
+		console.log("No configuration file found, created using defaults");
+	}
+	scheduler.start();
 
-config.load("./config/settings.json", function() {
 	device.open(config.settings.com_name, function() {
 		console.log(config.settings.com_name + " opened");
 	}, function(err) {
@@ -48,4 +51,5 @@ config.load("./config/settings.json", function() {
 	});
 }, function(err) {
 	console.log("Couldn't read config file");
+	console.log(err);
 });

@@ -10,20 +10,29 @@ module.exports = {
 	devices: [],
 	schedules: [],
 	load: function(path, callback, errcallback) {
-		fs.readFile(path, function(err, data) {
+		file_path = path;
+		fs.readFile(file_path, function(err, data) {
 			if (!err) {
 				try {
 					var parsed = JSON.parse(data);
 					module.exports.settings = parsed.settings;
 					module.exports.devices = parsed.devices;
 					module.exports.schedules = parsed.schedules;
-					file_path = path;
-					callback();
+					callback(false);
 				} catch (ex) {
 					errcallback(ex);
 				}
 			} else {
-				errcallback(err);
+				if (err.code === "ENOENT") {
+					module.exports.save(function() {
+						//Created new config from defaults
+						callback(true);
+					}, function(err) {
+						errcallback(err);
+					});
+				} else {
+					errcallback(err);
+				}
 			}
 		});
 	},
