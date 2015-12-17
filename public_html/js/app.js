@@ -12,8 +12,8 @@ app.controller("Sandbox", function($scope, Control) {
 	};
 });
 
-app.controller("Schedules", function($scope, Control, Schedule) {
-	$scope.schedules = Schedule.query();
+app.controller("Schedules", function($scope, Control, Schedules) {
+	$scope.schedules = Schedules.query();
 	$scope.deleteSchedule = function(schedule) {
 		schedule.$delete(function() {
 			console.log("deleted");
@@ -27,8 +27,8 @@ app.controller("Schedules", function($scope, Control, Schedule) {
 	};
 });
 
-app.controller("Devices", function($scope, Control, Device) {
-	$scope.devices = Device.query();
+app.controller("Devices", function($scope, Control, Devices) {
+	$scope.devices = Devices.query();
 	$scope.deleteDevice = function(device) {
 		device.$delete(function() {
 			console.log("deleted");
@@ -86,12 +86,12 @@ app.factory("Control", function($resource) {
 	return $resource("/api/:command/:house/:module");
 });
 
-app.factory("Schedule", function($resource) {
-	return $resource("/api/schedule/:id");
+app.factory("Schedules", function($resource) {
+	return $resource("/api/schedules");
 });
 
-app.factory("Device", function($resource) {
-	return $resource("/api/device/:id");
+app.factory("Devices", function($resource) {
+	return $resource("/api/devices");
 });
 
 app.factory("AvailablePorts", function($resource) {
