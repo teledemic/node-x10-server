@@ -22,6 +22,7 @@
     "express": "^4.13.3",
     "lodash": "^3.10.1",
     "node-x10-comm": "^1.0.3",
-    "serialport": "^2.0.5"
+    "serialport": "^2.0.5",
+    "suncalc": "^1.7.0"
   }
 }

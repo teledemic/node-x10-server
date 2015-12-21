@@ -1,6 +1,6 @@
 {
 	"settings": {
-		"com_name": "COM3",
+		"com_name": "COM1",
 		"web_port": 8081
 	},
 	"devices": [
@@ -17,19 +17,22 @@
 	],
 	"schedules": [
 		{
-			"time": 72900,
+			"time": 57018.225,
+			"dusk": -3600,
 			"house": 2,
 			"module": 3,
 			"command": 1
 		},
 		{
-			"time": 25800,
+			"time": 28430.952,
+			"dawn": 3600,
 			"house": 2,
 			"module": 3,
 			"command": 0
 		},
 		{
-			"time": 72900,
+			"time": 57018.225,
+			"dusk": -3600,
 			"house": 2,
 			"module": 0,
 			"command": 1

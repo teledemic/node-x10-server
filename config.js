@@ -6,6 +6,8 @@ module.exports = {
 	settings: {
 		com_name: "COM1",
 		web_port: 8081,
+		latitude: 44.5,
+		longitude: -73.2
 	},
 	devices: [],
 	schedules: [],
