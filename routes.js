@@ -91,8 +91,8 @@ router.post("/api/settings/commport", function(req, res) {
 	}
 });
 router.get("/api/on/:house/:module", function(req, res) {
-	var house = req.params.house;
-	var module = req.params.module;
+	var house = parseInt(req.params.house);
+	var module = parseInt(req.params.module);
 	device.sendCommand(house, module, 1, function() {
 		console.log("Sent: " + utilities.commandText(house, module, 1));
 		res.json(true);
@@ -101,8 +101,8 @@ router.get("/api/on/:house/:module", function(req, res) {
 	});
 });
 router.get("/api/off/:house/:module", function(req, res) {
-	var house = req.params.house;
-	var module = req.params.module;
+	var house = parseInt(req.params.house);
+	var module = parseInt(req.params.module);
 	device.sendCommand(house, module, 0, function() {
 		console.log("Sent: " + utilities.commandText(house, module, 0));
 		res.json(true);

@@ -6,7 +6,8 @@ module.exports = {
 		res.exception = detail;
 		res.json({
 			"status": errcode,
-			"message": message
+			"message": message,
+			"exception": detail
 		});
 	},
 
