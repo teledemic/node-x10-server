@@ -9,6 +9,7 @@ import { Scheduler } from "./lib/scheduler";
 import { ErrorDetail, ErrorDetailHandler } from "./lib/errorhandling";
 
 import RootRoutes from "./routes";
+import { Fauxmo } from "./lib/fauxmo";
 
 const app = express();
 const server = http.createServer(app);
@@ -41,9 +42,10 @@ app.use(ErrorDetailHandler);
 
 Promise.resolve().then(async () => {
 	await ConfigFile.Load("./config/settings.json");
+	Fauxmo.Update(ConfigFile.devices);
 	Scheduler.Start();
 
-	await Device.Open(ConfigFile.settings.com_name);
+	// await Device.Open(ConfigFile.settings.com_name);
 	console.log(ConfigFile.settings.com_name + " opened");
 
 	server.listen(ConfigFile.settings.web_port, function () {

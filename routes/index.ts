@@ -4,6 +4,7 @@ import { ConfigFile } from "../lib/configfile";
 import { Device } from "../lib/device";
 import { Utilities } from "../lib/utilities";
 import { RouteWrap, ErrorDetail } from "../lib/errorhandling";
+import { Fauxmo } from "../lib/fauxmo";
 
 const router = express.Router();
 
@@ -34,6 +35,7 @@ router.post("/api/devices", RouteWrap(async (req, res) => {
 	}
 	ConfigFile.devices = devices;
 	await ConfigFile.Save();
+	Fauxmo.Update(ConfigFile.devices);
 	Utilities.ReturnEmptySuccess(res);
 }));
 
