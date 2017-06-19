@@ -11,25 +11,11 @@
 		},
 		{
 			"house": 2,
-			"module": 3,
-			"name": "Porch lights"
+			"module": 1,
+			"name": "Bedroom lights"
 		}
 	],
 	"schedules": [
-		{
-			"time": 57018.225,
-			"dusk": -3600,
-			"house": 2,
-			"module": 3,
-			"command": 1
-		},
-		{
-			"time": 28430.952,
-			"dawn": 3600,
-			"house": 2,
-			"module": 3,
-			"command": 0
-		},
 		{
 			"time": 57018.225,
 			"dusk": -3600,
@@ -41,6 +27,19 @@
 			"time": 84600,
 			"house": 2,
 			"module": 0,
+			"command": 0
+		},
+		{
+			"time": 57018.225,
+			"dusk": -3600,
+			"house": 2,
+			"module": 1,
+			"command": 1
+		},
+		{
+			"time": 79200,
+			"house": 2,
+			"module": 1,
 			"command": 0
 		}
 	]
