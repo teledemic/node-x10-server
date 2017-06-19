@@ -1,5 +1,5 @@
 {
 	"exec": "npm start",
-	"watch": "src",
+	"ignore": "node_modules",
 	"ext": "ts"
 }
