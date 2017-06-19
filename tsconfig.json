@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "sourceMap": true,
+    "newLine": "LF",
+    "target": "es6",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "experimentalDecorators": true
+  },
+  "filesGlob": [
+    "**/*.ts",
+    "!node_modules/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
+  ],
+  "compileOnSave": false,
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}

@@ -4,6 +4,7 @@
   "description": "Schedule and send x10 commands via a web interface",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node --no-cache index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,11 +18,25 @@
   },
   "homepage": "https://github.com/teledemic/node-x10-server#readme",
   "dependencies": {
-    "body-parser": "^1.14.1",
-    "cors": "^2.7.1",
-    "express": "^4.13.3",
-    "lodash": "^3.10.1",
-    "node-x10-comm": "^1.1.0",
-    "suncalc": "^1.7.0"
+    "body-parser": "1.17.2",
+    "cors": "2.8.3",
+    "express": "4.15.3",
+    "fauxmojs": "1.0.1",
+    "fs-extra": "^3.0.1",
+    "lodash": "4.17.4",
+    "node-x10-comm": "1.2.0",
+    "on-finished": "^2.3.0",
+    "suncalc": "1.8.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.3",
+    "@types/cors": "^2.8.1",
+    "@types/express": "^4.0.36",
+    "@types/express-serve-static-core": "^4.0.48",
+    "@types/fs-extra": "^3.0.3",
+    "@types/node": "^8.0.0",
+    "@types/on-finished": "^2.2.29",
+    "ts-node": "^3.0.6",
+    "typescript": "^2.3.4"
   }
 }
