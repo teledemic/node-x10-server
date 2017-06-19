@@ -7,9 +7,9 @@ import { ConfigFile } from "./lib/configfile";
 import { Device } from "./lib/device";
 import { Scheduler } from "./lib/scheduler";
 import { ErrorDetail, ErrorDetailHandler } from "./lib/errorhandling";
+import { Fauxmo } from "./lib/fauxmo";
 
 import RootRoutes from "./routes";
-import { Fauxmo } from "./lib/fauxmo";
 
 const app = express();
 const server = http.createServer(app);
