@@ -14,7 +14,8 @@ export class Fauxmo {
 			};
 		});
 		// fauxmo = new fauxmojs({ devices: fauxdev });
-		fauxmo.updateDevices({ devices: fauxdev });
+		console.log(fauxdev);
+		fauxmo.updateDevices(fauxdev);
 	}
 }
 
