@@ -13,8 +13,8 @@ export class Fauxmo {
 				},
 			};
 		});
-		console.log(fauxdev);
-		fauxmo.updateDevices(fauxdev);
+		// fauxmo = new fauxmojs({ devices: fauxdev });
+		fauxmo.updateDevices({ devices: fauxdev });
 	}
 }
 
