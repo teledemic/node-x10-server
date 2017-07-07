@@ -18,6 +18,7 @@ export function ErrorDetailHandler(err: any, req: APIRequest, res: APIResponse, 
 	res.status(errcode);
 	res.message = message;
 	res.exception = err;
+	console.log(err);
 
 	const result: any = {
 		"status": errcode,

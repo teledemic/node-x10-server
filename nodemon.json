@@ -1,8 +1,5 @@
 {
 	"exec": "npm start",
 	"ignore": "node_modules",
-	"ext": "ts",
-	"env": {
-		"DEBUG": "ssdp-server,discoveryService"
-	}
+	"ext": "ts"
 }

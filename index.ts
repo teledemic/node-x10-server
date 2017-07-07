@@ -45,7 +45,7 @@ Promise.resolve().then(async () => {
 	Fauxmo.Update(ConfigFile.devices);
 	Scheduler.Start();
 
-	// await Device.Open(ConfigFile.settings.com_name);
+	await Device.Open(ConfigFile.settings.com_name);
 	console.log(ConfigFile.settings.com_name + " opened");
 
 	server.listen(ConfigFile.settings.web_port, function () {
