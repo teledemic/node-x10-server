@@ -1,3 +1,5 @@
+import { Device } from "./device";
+
 const fauxmojs = require("fauxmojs");
 
 const fauxmo = new fauxmojs();
@@ -19,6 +21,11 @@ export class Fauxmo {
 	}
 }
 
-function HandleAction(house: number, module: number, action: any) {
+async function HandleAction(house: number, module: number, action: any) {
+	if (action === "on") {
+		await Device.SendCommand(house, module, true);
+	} else if (action === "off") {
+		await Device.SendCommand(house, module, false);
+	}
 	console.log(house, module, action);
 }
