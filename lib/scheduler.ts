@@ -33,7 +33,7 @@ export class Scheduler {
 				});
 			}
 			for (const sched of todo) {
-				await Device.SendCommand(sched.house, sched.module, sched.onoff);
+				await Device.SendCommand(sched.house, sched.module, sched.command);
 				console.log("Scheduler: sent " + Utilities.CommandText(sched.house, sched.module, sched.command));
 				await Utilities.Delay(TIME_BETWEEN_COMMANDS_MS);
 			}
