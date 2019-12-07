@@ -47,7 +47,7 @@
 			"command": true
 		},
 		{
-			"time": 75600,
+			"time": 79200,
 			"house": 2,
 			"module": 1,
 			"command": false
