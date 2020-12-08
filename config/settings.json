@@ -28,7 +28,7 @@
 	"schedules": [
 		{
 			"time": 57018.225,
-			"dusk": -3600,
+			"dusk": -6000,
 			"house": 2,
 			"module": 0,
 			"command": true
@@ -41,7 +41,7 @@
 		},
 		{
 			"time": 57018.225,
-			"dusk": -3600,
+			"dusk": -6000,
 			"house": 2,
 			"module": 1,
 			"command": true
